@@ -3,7 +3,7 @@ Project Overview:
 The project "Room Finder" is a web application that helps tenants to search for properties available for rent and owners to add, update and delete their properties.
 The application is developed using Java, MySQL, Angular, Spring Boot, and Hibernate.
 
-Module 1: Tenant Module
+# Module 1: Tenant Module
 
   -The tenant module allows tenants to search for properties based on location, rent, and property type. The following are the features of the tenant module:
 
@@ -13,7 +13,7 @@ Module 1: Tenant Module
 
   -Property Details: Tenants can view the property details, including property images, description, location, and rent.
 
-Module 2: Owner Module
+# Module 2: Owner Module
 
   -The owner module allows owners to add, update, and delete their properties. The following are the features of the owner module:
 
@@ -25,7 +25,7 @@ Module 2: Owner Module
 
   -Delete Property: Owners can delete their properties from the application.
 
-Technologies used:
+# Technologies used:
 
   -Java: Java is used to develop the backend of the application.
 
