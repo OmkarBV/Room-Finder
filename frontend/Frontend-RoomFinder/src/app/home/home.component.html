@@ -1,0 +1,105 @@
+<div class="container-fluid">
+    <div class="row-">
+        <div class="col-">
+
+            <!-- Navbar section -->
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" [routerLink]="[isowner==='true'?'/owner':'/tenant' ,username]">My
+                            Profile</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <form class="navbar-form navbar-left">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Location" #loc>
+                            </div>
+                            <button type="submit" class="btn btn-default" style="margin: 1%;"
+                                (click)="seachByLocation(loc.value)">Search</button>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Rent" #rent>
+                            </div>
+                            <button type="submit" class="btn btn-default" style="margin: 1%;"
+                                (click)="searchByRent(rent.value)">Search</button>
+                            <div class="form-group">
+                                <select style="padding: 2%;" class="form-control" id="type"
+                                    (change)="seachByType($event)">
+                                    <option value="">Type</option>
+                                    <option value="apartment">Apartment
+                                    </option>
+                                    <option value="house">House</option>
+                                    <option value="condo">Condo</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <select style="padding: 2%;" class="form-control" id="type"
+                                    (change)="sortByRent($event)">
+                                    <option value="">Sort</option>
+                                    <option value="lh">Low To High
+                                    </option>
+                                    <option value="ht">High TO Low</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main content section -->
+            <div class="container" style="margin-top:10%;">
+                <h1>Welcome to Room Finder App!</h1>
+                <table>
+                    <tr *ngFor="let p of property;index as i">
+                        <td>
+                            <div class="card">
+                                <div class="card-header">
+                                    Location : {{p.location}}
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Rent : {{p.rent}} </h5>
+                                    <h5 class="card-title">Type : {{p.type}} </h5>
+                                    <h5 class="card-title">desc : Lorem ipsum dolor sit amet consectetur, adipisicing
+                                        elit. Doloremque ad ratione voluptas a dolorum corrupti culpa laudantium quas,
+                                        aliquid maxime enim quam! Nulla consectetur ex voluptates fugiat sint sunt!
+                                        Iste. </h5>
+                                    <a class="btn btn-primary" [attr.data-target]="'#modelowner' + i"
+                                        data-toggle="modal">Owner
+                                        Contact</a>
+
+                                    <div class="modal" [attr.id]="'modelowner' + i">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3 class="text-center text-primary">Owner Details
+                                                    </h3>
+                                                    <button class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h3>Name : {{p.owner.name}}</h3>
+                                                    <h3>Email : {{p.owner.email}}</h3>
+                                                    <h3>Contact : {{p.owner.number}}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer section -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2023 Room Finder App</p>
+    </div>
+</footer>

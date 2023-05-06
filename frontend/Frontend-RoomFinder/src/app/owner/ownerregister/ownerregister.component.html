@@ -1,0 +1,42 @@
+<div class="container mt-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card shadow-lg p-3 mb-5 bg-light rounded">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Register</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input #name type="text" class="form-control" id="name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input #email type="email" class="form-control" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input #number type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input  type="password" class="form-control" id="password" placeholder="Enter your password">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input #password type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password">
+                        </div>
+                        <div class="text-center">
+                            <button (click)="onRegister(name.value,email.value,number.value,password.value)"  type="submit" class="btn btn-success mr-3">Register</button>
+                            <button type="reset" class="btn btn-danger">Reset</button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-3" *ngIf="sms==='already registered'">
+                        <p class="text-danger">Already Registered Login In.</p>
+                     </div>
+                    <hr>
+                    <p>Already have an account? <a routerLink="/ownerlogin">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container mt-5 text-center ">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card shadow-lg p-3 mb-5 rounded">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Tenent Login</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input #user type="text" class="form-control" id="username" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input #pass type="password" class="form-control" id="password" placeholder="Enter password">
+                        </div>
+                        <div class="text-center">
+                            <button (click)="onLogin(user.value,pass.value)" type="submit" class="btn btn-success mr-3">Login</button>
+                            <a routerLink="/tenantregister" class="btn btn-primary">Register</a>
+                        </div>
+                    </form>
+                    <div class="text-center mt-3" *ngIf="sms==='Invalid User'">
+                        <p class="text-danger">Incorrect UserName Or Register.</p>
+                     </div>
+                     <div class="text-center mt-3" *ngIf="sms==='Invalid Password'">
+                        <p class="text-danger">Incorrect Password .</p>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

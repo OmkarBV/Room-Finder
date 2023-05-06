@@ -1,0 +1,13 @@
+.navbar-form .form-group {
+  display: inline-block;
+  margin-right: 10px;
+}
+@media (max-width: 767px) {
+  .navbar-form .form-group {
+    display: block;
+    margin-right: 0;
+  }
+}
+.model {
+  display: none;
+}
