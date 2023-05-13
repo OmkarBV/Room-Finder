@@ -59,8 +59,7 @@ public class ServiceLoginRegister {
 			response.put("message", "Invalid User");
 			return response;
 		} else {
-			if (s.get(0).getEmail().equals(tenant.getEmail())
-					&& s.get(0).getPassword().equals(tenant.getPassword())) {
+			if (s.get(0).getEmail().equals(tenant.getEmail()) && s.get(0).getPassword().equals(tenant.getPassword())) {
 				response.put("success", true);
 				response.put("message", "Login successful");
 				return response;
@@ -86,11 +85,10 @@ public class ServiceLoginRegister {
 	}
 
 	public Tenant getTenant(String email) {
-		
+
 		return dao.getTenant(email);
 	}
 
-	public Owner getOwner(String email) {
-		return dao.getOwner(email);
-	}
+	
+
 }

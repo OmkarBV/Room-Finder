@@ -1,6 +1,0 @@
-com\roomfinder\entity\Owner.class
-com\roomfinder\service\ServiceLoginRegister.class
-com\roomfinder\dao\DaoLoginRegister.class
-com\roomfinder\RoomFinderApplication.class
-com\roomfinder\entity\Tenant.class
-com\roomfinder\controller\ControllerLoginRegister.class

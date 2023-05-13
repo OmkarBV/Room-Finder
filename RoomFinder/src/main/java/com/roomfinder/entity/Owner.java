@@ -8,13 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "owner")
 public class Owner {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 
 	private String name;
@@ -25,6 +26,7 @@ public class Owner {
 
 	private String password;
 	@OneToMany(mappedBy = "owner")
+	@Transient
 	private List<Property> properties;
 	
 	public List<Property> getProperties() {

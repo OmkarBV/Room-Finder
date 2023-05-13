@@ -2,8 +2,8 @@ package com.roomfinder.dao;
 
 import java.util.List;
 
-
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -34,10 +34,6 @@ public class DaoRoomFinder {
 		Session session = sf.openSession();
 		Criteria cri = session.createCriteria(Property.class);
 		return cri.list();
-	}
-
-	public Owner ownerProperty(String email) {
-			return (Owner) sf.openSession().createCriteria(Owner.class).add(Restrictions.eq("email", email)).list().get(0);
 	}
 
 	public String updatePropertyRent(Property p) {
@@ -87,6 +83,25 @@ public class DaoRoomFinder {
 		Criteria cri = session.createCriteria(Property.class);
 
 		return cri.list();
+	}
+
+	public Owner getOwner(String email) {
+		Session session = sf.openSession();
+		Criteria cri = session.createCriteria(Owner.class);
+		cri.add(Restrictions.eq("email", email));
+		return (Owner) cri.list().get(0);
+	}
+
+	public List<Property> getOwnerProperties(Owner owner) {
+		Session session = sf.openSession();
+		Query<Property> query = session.createQuery("SELECT p FROM Property p JOIN p.owner o WHERE o.id =:owner_id",
+				Property.class);
+		query.setParameter("owner_id", owner.getId());
+		List<Property> l = query.getResultList();
+		for (Property p : l) {
+			p.setOwner(null);
+		}
+		return l;
 	}
 
 }

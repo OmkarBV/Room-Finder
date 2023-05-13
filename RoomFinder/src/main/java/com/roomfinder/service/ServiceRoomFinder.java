@@ -25,10 +25,6 @@ public class ServiceRoomFinder {
 		return dao.getAllProperty();
 	}
 
-	public Owner ownerProperty(String email) {
-		return dao.ownerProperty(email);
-	}
-
 	public String updatePropertyRent(Property p) {
 		return dao.updatePropertyRent(p);
 	}
@@ -61,5 +57,12 @@ public class ServiceRoomFinder {
 		Comparator<Property> c = (p1, p2) -> (int) (p2.getRent() - p1.getRent());
 		Collections.sort(al, c);
 		return al;
+	}
+
+	public Owner getOwner(String email) {
+		Owner owner = dao.getOwner(email);
+		owner.setProperties(dao.getOwnerProperties(owner));
+		System.out.println(owner);
+		return owner;
 	}
 }

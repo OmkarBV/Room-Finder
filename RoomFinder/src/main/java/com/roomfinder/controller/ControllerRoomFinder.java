@@ -23,11 +23,6 @@ public class ControllerRoomFinder {
 	@Autowired
 	ServiceRoomFinder service;
 
-	@GetMapping("/ownerproperty/{email}")
-	public Owner ownerProperty(@PathVariable String email) {
-		return service.ownerProperty(email);
-	}
-
 	@PostMapping("/insertproperty")
 	public String insertProperty(@RequestBody Property property) {
 		return service.insertProperty(property);
@@ -76,6 +71,11 @@ public class ControllerRoomFinder {
 	@GetMapping("/sortbyrenthightolow")
 	public List<Property> sortByRentHighToLow() {
 		return service.sortByRentHighToLow();
+	}
+
+	@GetMapping("/getowner/{email}")
+	public Owner getOwner(@PathVariable String email) {
+		return service.getOwner(email);
 	}
 
 }

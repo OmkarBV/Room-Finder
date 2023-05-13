@@ -41,6 +41,8 @@ export class HomeComponent implements OnInit {
     this.service.getAllProperty().
       subscribe((responce: any) => {
         this.property = responce
+        console.log(this.property);
+        
       }, (error) => {
         console.log(error)
         this.router.navigate(['/errorpage'])

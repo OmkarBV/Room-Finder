@@ -10,7 +10,7 @@ import { ErrorpageComponent } from './errorpage/errorpage.component';
 import { OwnerComponent } from './owner/owner.component';
 import { TenantComponent } from './tenant/tenant.component';
 
-const routes: Routes = [
+const routes: Routes = [  
   {
     path: "", component: IndexPageComponent
   },

@@ -71,8 +71,4 @@ public class ControllerLoginRegister {
 		return service.getTenant(email);
 	}
 	
-	@GetMapping("/getowner/{email}")
-	public Owner getOwner(@PathVariable String email) {
-		return service.getOwner(email);
-	}
 }

@@ -53,8 +53,6 @@ public class DaoLoginRegister {
 				.get(0);
 	}
 
-	public Owner getOwner(String email) {
-		return (Owner) sf.openSession().createCriteria(Owner.class).add(Restrictions.eq("email", email)).list().get(0);
-	}
 
+	
 }

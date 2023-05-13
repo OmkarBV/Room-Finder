@@ -9,14 +9,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "property")
 public class Property {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 
 	private String location;
@@ -27,8 +25,8 @@ public class Property {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "owner_id")
-	@JsonIgnore
-	private  Owner owner;
+	// @JsonIgnore
+	private Owner owner;
 
 	@Override
 	public String toString() {
