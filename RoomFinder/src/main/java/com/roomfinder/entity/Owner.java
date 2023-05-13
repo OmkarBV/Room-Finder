@@ -82,8 +82,4 @@ public class Owner {
 		return "Owner [id=" + id + ", name=" + name + ", email=" + email + ", number=" + number + ", password="
 				+ password + ", properties=" + properties + "]";
 	}
-
-	
-
-	// constructor, getters and setters, other methods
 }

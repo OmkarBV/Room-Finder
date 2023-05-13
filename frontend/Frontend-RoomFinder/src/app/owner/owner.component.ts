@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./owner.component.css']
 })
 export class OwnerComponent implements OnInit {
-
+  sms: string = ''
   owner = {
     email: '',
     name: '',
@@ -36,6 +36,23 @@ export class OwnerComponent implements OnInit {
     this.service.getOwner(this.username).
       subscribe((responce: any) => {
         this.owner = responce
+      })
+  }
+
+  insertproperty(loc: any, rent: any, type: any) {
+    let obj = {
+      
+      location: loc,
+      rent: rent,
+      type: type
+    }
+    this.service.insertProperty(obj).
+      subscribe((responce: any) => {
+        this.sms = responce
+      }, (error) => {
+        this.sms = 'Somthing Wrong Data Not Saved'
+        console.log(error);
+
       })
   }
 }

@@ -13,17 +13,19 @@
                 </div>
             </div>
             <h3><strong>My Properties</strong></h3>
+            <button class="btn btn-primary mb-3" id="insertPropertyBtn" data-toggle="modal"
+                data-target="#insertPropertyModal">Insert Property</button>
             <table>
                 <tr *ngFor="let p of owner.properties;index as i">
                     <td>
                         <div class="card">
                             <div class="card-header">
-                                Location : {{p.location}}
+                                Location: {{p.location}}
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Rent : {{p.rent}} </h5>
-                                <h5 class="card-title">Type : {{p.type}} </h5>
-                                <h5 class="card-title">desc : Lorem ipsum dolor sit amet consectetur, adipisicing
+                                <h5 class="card-title">Rent: {{p.rent}} </h5>
+                                <h5 class="card-title">Type: {{p.type}} </h5>
+                                <h5 class="card-title">desc: Lorem ipsum dolor sit amet consectetur, adipisicing
                                     elit. Doloremque ad ratione voluptas a dolorum corrupti culpa laudantium quas,
                                     aliquid maxime enim quam! Nulla consectetur ex voluptates fugiat sint sunt!
                                     Iste. </h5>
@@ -32,6 +34,40 @@
                     </td>
                 </tr>
             </table>
+        </div>
+    </div>
+</div>
+
+<!-- Insert Property Modal -->
+<div class="modal fade" id="insertPropertyModal" tabindex="-1" role="dialog" aria-labelledby="insertPropertyModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="insertPropertyModalLabel">Insert Property</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input #loc type="text" class="form-control" id="location" placeholder="Enter location">
+                </div>
+                <div class="form-group">
+                    <label for="rent">Rent</label>
+                    <input #rent type="text" class="form-control" id="rent" placeholder="Enter rent">
+                </div>
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <input #type type="text" class="form-control" id="type" placeholder="Enter type">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary"
+                    (click)="insertproperty(loc.value,rent.value,type.value)">Insert</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>

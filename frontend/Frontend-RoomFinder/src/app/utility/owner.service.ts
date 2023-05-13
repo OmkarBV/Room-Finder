@@ -19,5 +19,8 @@ export class OwnerService {
   getOwner(username: any) {
     return this.http.get(this.url + '/getowner/' + username)
   }
- 
+  insertProperty(obj: any) {
+    return this.http.post(this.url + '/insertproperty', obj)
+  }
+
 }
