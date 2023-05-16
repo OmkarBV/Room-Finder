@@ -94,7 +94,6 @@ export class OwnerComponent implements OnInit {
       }
     }, (error) => {
       console.log(error);
-      //this.router.navigate(['/error'])
     })
   }
 }
