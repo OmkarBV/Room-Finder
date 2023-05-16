@@ -23,4 +23,12 @@ export class OwnerService {
     return this.http.post(this.url + '/insertproperty', obj)
   }
 
+  updateProperty(property: any) {
+    return this.http.put(this.url + '/updateproperty', property)
+  }
+
+  deleteProperty(id: number) {
+    return this.http.delete(this.url + '/deleteproperty/' + id)
+  }
+
 }

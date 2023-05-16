@@ -21,13 +21,13 @@ public class DaoRoomFinder {
 	@Autowired
 	SessionFactory sf;
 
-	public String insertProperty(Property property) {
+	public boolean insertProperty(Property property) {
 		System.out.println(property.getOwner().getId());
 		Session session = sf.openSession();
 		Transaction tr = session.beginTransaction();
 		session.save(property);
 		tr.commit();
-		return "Property Inserted";
+		return true;
 	}
 
 	public List<Property> getAllProperty() {
@@ -36,23 +36,20 @@ public class DaoRoomFinder {
 		return cri.list();
 	}
 
-	public String updatePropertyRent(Property p) {
-		Session session = sf.openSession();
-		Property property = session.get(Property.class, p.getId());
-		property.setRent(p.getRent());
-		Transaction tri = session.beginTransaction();
-		session.save(property);
-		tri.commit();
-		return "Rent Updated";
-	}
-
-	public String deleteProperty(Property p) {
+	public boolean updatePropertyRent(Property p) {
 		Session session = sf.openSession();
 		Transaction tr = session.beginTransaction();
-		Property property = session.get(Property.class, p.getId());
-		session.delete(property);
+		session.update(p);
 		tr.commit();
-		return "Data deleted successfuly";
+		return true;
+	}
+
+	public boolean deleteProperty(int id) {
+		Session session = sf.openSession();
+		Transaction tr = session.beginTransaction();
+		session.delete(session.get(Property.class, (long) id));
+		tr.commit();
+		return true;
 	}
 
 	public List<Property> seachByLocation(String loc) {

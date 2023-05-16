@@ -17,7 +17,7 @@ public class ServiceRoomFinder {
 	@Autowired
 	DaoRoomFinder dao;
 
-	public String insertProperty(Property property) {
+	public boolean insertProperty(Property property) {
 		return dao.insertProperty(property);
 	}
 
@@ -25,12 +25,12 @@ public class ServiceRoomFinder {
 		return dao.getAllProperty();
 	}
 
-	public String updatePropertyRent(Property p) {
+	public boolean updatePropertyRent(Property p) {
 		return dao.updatePropertyRent(p);
 	}
 
-	public String deleteProperty(Property p) {
-		return dao.deleteProperty(p);
+	public boolean deleteProperty(int id) {
+		return dao.deleteProperty(id);
 	}
 
 	public List<Property> seachByLocation(String loc) {
@@ -62,7 +62,6 @@ public class ServiceRoomFinder {
 	public Owner getOwner(String email) {
 		Owner owner = dao.getOwner(email);
 		owner.setProperties(dao.getOwnerProperties(owner));
-		System.out.println(owner);
 		return owner;
 	}
 }

@@ -24,18 +24,18 @@ public class ControllerRoomFinder {
 	ServiceRoomFinder service;
 
 	@PostMapping("/insertproperty")
-	public String insertProperty(@RequestBody Property property) {
+	public boolean insertProperty(@RequestBody Property property) {
 		return service.insertProperty(property);
 	}
 
-	@PutMapping("/updatepropertyrent")
-	public String updatePropertyRent(@RequestBody Property p) {
+	@PutMapping("/updateproperty")
+	public boolean updatePropertyRent(@RequestBody Property p) {
 		return service.updatePropertyRent(p);
 	}
 
-	@DeleteMapping("/deleteproperty")
-	public String deleteProperty(@RequestBody Property p) {
-		return service.deleteProperty(p);
+	@DeleteMapping("/deleteproperty/{id}")
+	public boolean deleteProperty(@PathVariable int id) {
+		return service.deleteProperty(id);
 	}
 
 	@GetMapping("/getallproperty")
