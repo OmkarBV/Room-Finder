@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.roomfinder.entity.Owner;
@@ -23,7 +22,7 @@ public class ControllerLoginRegister {
 	@Autowired
 	ServiceLoginRegister service;
 
-	@RequestMapping("/ownerlogin")
+	@PostMapping("/ownerlogin")
 	public Map<String, Object> ownerLogin(@RequestBody Owner owner) {
 		System.out.println(owner);
 		return service.ownerLogin(owner);
@@ -45,7 +44,7 @@ public class ControllerLoginRegister {
 		}
 	}
 
-	@RequestMapping("/tenantlogin")
+	@PostMapping("/tenantlogin")
 	public Map<String, Object> tenantLogin(@RequestBody Tenant tenant) {
 		return service.tenantLogin(tenant);
 	}

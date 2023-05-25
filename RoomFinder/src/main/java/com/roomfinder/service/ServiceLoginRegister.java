@@ -12,7 +12,7 @@ import com.roomfinder.entity.Owner;
 import com.roomfinder.entity.Tenant;
 
 @Service
-public class ServiceLoginRegister {
+public class ServiceLoginRegister implements  LoginRegister{
 	@Autowired
 	DaoLoginRegister dao;
 
