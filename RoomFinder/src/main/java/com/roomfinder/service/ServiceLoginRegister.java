@@ -12,10 +12,11 @@ import com.roomfinder.entity.Owner;
 import com.roomfinder.entity.Tenant;
 
 @Service
-public class ServiceLoginRegister implements  LoginRegister{
+public class ServiceLoginRegister implements LoginRegister {
 	@Autowired
 	DaoLoginRegister dao;
 
+	@Override
 	public Map<String, Object> ownerLogin(Owner owner) {
 		Map<String, Object> response = new HashMap<>();
 
@@ -37,6 +38,7 @@ public class ServiceLoginRegister implements  LoginRegister{
 		}
 	}
 
+	@Override
 	public boolean checkAlreadyRegister(Owner owner) {
 		List<Owner> l = dao.ownerLogin(owner);
 		if (l.size() == 0) {
@@ -46,10 +48,12 @@ public class ServiceLoginRegister implements  LoginRegister{
 		}
 	}
 
+	@Override
 	public void ownerRegister(Owner owner) {
 		dao.ownerRegister(owner);
 	}
 
+	@Override
 	public Map<String, Object> tenantLogin(Tenant tenant) {
 		Map<String, Object> response = new HashMap<>();
 
@@ -71,6 +75,8 @@ public class ServiceLoginRegister implements  LoginRegister{
 		}
 	}
 
+	// This is Override method Method
+	@Override
 	public boolean checkAlreadyRegister(Tenant tenant) {
 		List<Tenant> l = dao.tenantLogin(tenant);
 		if (l.size() == 0) {
@@ -80,6 +86,7 @@ public class ServiceLoginRegister implements  LoginRegister{
 		}
 	}
 
+	@Override
 	public void tenantRegister(Tenant tenant) {
 		dao.tenantRegister(tenant);
 	}
@@ -88,7 +95,5 @@ public class ServiceLoginRegister implements  LoginRegister{
 
 		return dao.getTenant(email);
 	}
-
-	
 
 }
