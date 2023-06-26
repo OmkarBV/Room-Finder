@@ -63,7 +63,6 @@ public class DaoRoomFinder {
 		Session session = sf.openSession();
 		Criteria cri = session.createCriteria(Property.class);
 		cri.add(Restrictions.eq("type", roomtype));
-		System.out.println();
 		return cri.list();
 	}
 
